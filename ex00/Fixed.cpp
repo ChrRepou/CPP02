@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crepou <crepou@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/10 19:53:27 by crepou            #+#    #+#             */
+/*   Updated: 2023/08/10 19:58:35 by crepou           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->setRawBits(0);
 }
 
 Fixed::Fixed(const Fixed& num)
@@ -33,6 +46,5 @@ int Fixed::getRawBits( void ) const
 
 void Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->fixedPointVal = raw;
 }
