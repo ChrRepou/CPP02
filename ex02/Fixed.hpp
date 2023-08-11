@@ -6,7 +6,7 @@
 /*   By: crepou <crepou@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:02:13 by crepou            #+#    #+#             */
-/*   Updated: 2023/08/11 19:15:07 by crepou           ###   ########.fr       */
+/*   Updated: 2023/08/11 19:35:47 by crepou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,21 @@ class Fixed {
 		Fixed(const float num);
 		Fixed(const Fixed& num); //copy constructor
 		Fixed& operator=(const Fixed& obj); //copy assignment operator overload.
+		
+		//comparison operators
 		int operator<(const Fixed& obj);
 		int operator>(const Fixed& obj);
 		int operator<=(const Fixed& obj);
 		int operator>=(const Fixed& obj);
 		int operator==(const Fixed& obj);
 		int operator!=(const Fixed& obj);
+
+		//arithmetic operators
+		Fixed operator+(const Fixed& obj);
+		Fixed operator-(const Fixed& obj);
+		Fixed operator*(const Fixed& obj);
+		Fixed operator/(const Fixed& obj);
+		
 		~Fixed(); //destructor
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );

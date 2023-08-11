@@ -6,7 +6,7 @@
 /*   By: crepou <crepou@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:02:02 by crepou            #+#    #+#             */
-/*   Updated: 2023/08/11 19:17:38 by crepou           ###   ########.fr       */
+/*   Updated: 2023/08/11 19:41:02 by crepou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,24 @@ int Fixed::operator!=(const Fixed& obj)
 	if (this->getRawBits() != obj.getRawBits())
 		return 1;
 	return 0;
+}
+
+Fixed Fixed::operator+(const Fixed& obj)
+{
+	return ( Fixed( this->toFloat() + obj.toFloat() ) );
+}
+
+Fixed Fixed::operator-(const Fixed& obj)
+{
+	return ( Fixed( this->toFloat() - obj.toFloat() ) );
+}
+
+Fixed Fixed::operator*(const Fixed& obj)
+{
+	return ( Fixed( this->toFloat() * obj.toFloat() ) );
+}
+
+Fixed Fixed::operator/(const Fixed& obj)
+{
+	return ( Fixed( this->toFloat() / obj.toFloat() ) );
 }
