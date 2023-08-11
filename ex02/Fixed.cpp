@@ -6,7 +6,7 @@
 /*   By: crepou <crepou@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:02:02 by crepou            #+#    #+#             */
-/*   Updated: 2023/08/11 21:15:55 by crepou           ###   ########.fr       */
+/*   Updated: 2023/08/11 21:25:00 by crepou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->setRawBits(0);
 }
 
 Fixed::Fixed(const Fixed& num)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->fixedPointVal = num.getRawBits();
 }
 
 Fixed& Fixed::operator=(const Fixed& obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &obj) { // Check self-assignment
 		fixedPointVal = obj.getRawBits();
 	}
@@ -35,7 +32,6 @@ Fixed& Fixed::operator=(const Fixed& obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
@@ -50,13 +46,11 @@ void Fixed::setRawBits( int const raw )
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
 	setRawBits(num << this->nbFractionalBits);
 }
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called" << std::endl;
 	float	scaled_val = num * 256; //256 = 2^8 --> 8 fractional bits
 	int		rounded_num = roundf(scaled_val); // rounded to get the main part of num before the .
 	setRawBits(rounded_num);
@@ -143,27 +137,27 @@ Fixed Fixed::operator/(const Fixed& obj)
 	return ( Fixed( this->toFloat() / obj.toFloat() ) );
 }
 
-Fixed Fixed::operator++( void )
+Fixed Fixed::operator++( int )
 {
 	Fixed	newObj = Fixed(this->toFloat());
 	newObj.setRawBits(this->fixedPointVal++);
 	return newObj;
 }
 
-Fixed Fixed::operator--( void )
+Fixed Fixed::operator--( int )
 {
 	Fixed	newObj = Fixed(this->toFloat());
 	newObj.setRawBits(this->fixedPointVal--);
 	return newObj;
 }
 
-Fixed& Fixed::operator++( int )
+Fixed& Fixed::operator++( void )
 {
 	this->setRawBits(++this->fixedPointVal);
 	return (*this);
 }
 
-Fixed& Fixed::operator--( int )
+Fixed& Fixed::operator--( void )
 {
 	this->setRawBits(--this->fixedPointVal);
 	return (*this);

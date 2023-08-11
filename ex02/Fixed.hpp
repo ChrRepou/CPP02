@@ -6,7 +6,7 @@
 /*   By: crepou <crepou@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:02:13 by crepou            #+#    #+#             */
-/*   Updated: 2023/08/11 21:15:31 by crepou           ###   ########.fr       */
+/*   Updated: 2023/08/11 21:23:58 by crepou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ class Fixed {
 		Fixed operator/(const Fixed& obj);
 
 		//increament/decreament operators
-		Fixed operator++( void );
-		Fixed operator--( void );
-		Fixed& operator++( int );
-		Fixed& operator--( int );
+		Fixed operator++( int );
+		Fixed operator--( int );
+		Fixed& operator++( void );
+		Fixed& operator--( void );
 		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
