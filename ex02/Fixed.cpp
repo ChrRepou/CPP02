@@ -6,7 +6,7 @@
 /*   By: crepou <crepou@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:02:02 by crepou            #+#    #+#             */
-/*   Updated: 2023/08/11 21:02:53 by crepou           ###   ########.fr       */
+/*   Updated: 2023/08/11 21:15:55 by crepou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,4 +167,32 @@ Fixed& Fixed::operator--( int )
 {
 	this->setRawBits(--this->fixedPointVal);
 	return (*this);
+}
+
+Fixed& Fixed::min(Fixed& obj1, Fixed& obj2)
+{
+	if (obj1.getRawBits() < obj2.getRawBits())
+		return (obj1);
+	return (obj2);
+}
+
+const Fixed& Fixed::min(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.getRawBits() < obj2.getRawBits())
+		return (obj1);
+	return (obj2);
+}
+
+Fixed& Fixed::max(Fixed& obj1, Fixed& obj2)
+{
+	if (obj1.getRawBits() > obj2.getRawBits())
+		return (obj1);
+	return (obj2);
+}
+
+const Fixed& Fixed::max(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.getRawBits() > obj2.getRawBits())
+		return (obj1);
+	return (obj2);
 }
